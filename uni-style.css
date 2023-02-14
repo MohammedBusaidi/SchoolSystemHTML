@@ -1,0 +1,112 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: white;
+}
+
+.header img {
+  margin-left: 150px;
+  margin-bottom: -300px;
+}
+
+.application-form {
+  margin-top: 100px;
+}
+
+.application-form h1 {
+  text-align: center;
+  font-size: 40px;
+}
+
+form {
+  width: 500px;
+  margin-left: 35%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 10px;
+  display: block;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.application-form button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  font-size: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 14px;
+  
+}
+
+.application-form button :hover {
+  background-color: #3e8e41;
+}
+
+.go-back {
+  margin-left: 35%;
+  margin-top: 20px;
+}
+
+.go-back button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.go-back button:hover {
+  background-color: #3e8e41;
+}
+
+.domain-form {
+  margin-top: 100px;
+}
+
+.domain-form h1 {
+  text-align: center;
+  font-size: 40px;
+}
+
+.domain-table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.domain-table th,
+td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.domain-table th {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+.domain-table tr:hover {
+  background-color: #f5f5f5;
+}

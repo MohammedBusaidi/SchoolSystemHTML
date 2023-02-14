@@ -2,77 +2,52 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <style>
-.content {
-    text-align: center;
-    padding: 30px;
-    margin: 0px auto;
-}
-.details {
-    margin-left: auto;
-    margin-right: auto;
-}
-table,
-td {
-    border-collapse: collapse;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    padding: 10px;
-    border: 1px solid black;
-}
-.go-back-button {
-    text-align: center;
-}
-.go-back-button button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    font-size: 16px;
-    border-radius: 10px;
-    cursor: pointer;
-}
-.go-back-button button :hover {
-    background-color: #3e8e41;
-}
-        </style>
+        <link rel="stylesheet" type="text/css" href="students-style.css" />
+        <link rel="javascript" type="text" href="students-data.js"/>
+        <title>Students</title>
     </head>
     <body>
+        <main>
+            <div class="header">
+                <a href="home.html">Home</a>
+                <a href="register.html">Register</a>
+                <a href="students.html">Our Students</a>
+                <a href="uni.html">UNI</a>
+        </div>
         <div class="content">
             <h2>Student Details</h2>
             <div class="details" >
                 <table id="content">
                     <tr>
-                        <td>
+                        <th>
                             Image
-                        </td>
-                        <td>
+                        </th>
+                        <th>
                             Full name
-                        </td>
-                        <td>
+                        </th>
+                        <th>
                             Age
-                        </td>
-                        <td>
+                        </th>
+                        <th>
                             Gender
-                        </td>
-                        <td>
+                        </th>
+                        <th>
                             Location
-                        </td>
-                        <td>
+                        </th>
+                        <th>
                             Country
-                        </td>
+                        </th>
                     </tr>
                 </table>
             </div>
         </div>
-        <a href="index.html">
+        <a href="home.html">
         <div class="go-back-button">
             <button>Go Back</button>
         </div>
         </a>
 <script>
-const api_url = "https://randomuser.me/api/";
+  const api_url = "https://randomuser.me/api/";
 async function getUser() {
     for (i = 0; i < 10; i++) {
     document.getElementById("content").innerHTML += "<tr><td><span id=\"image"+i+"\"></td><td><span id=\"fullname"+i+"\"></span></td><td><span id=\"age"+i+"\"></span></td><td><span id=\"gender"+i+"\"></span></td><td><span id=\"location"+i+"\"></span></td><td><span id=\"country"+i+"\"></span></td></tr> ";
@@ -103,5 +78,6 @@ async function getUser() {
 // Calling the getUser() function
 getUser();
 </script>
-    </body>
+</main>
+</body>
 </html>
