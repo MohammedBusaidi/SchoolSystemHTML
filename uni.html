@@ -61,30 +61,36 @@
         <script>
             const api_url = "http://universities.hipolabs.com/search?country=United+States";
             async function getData() {
+                
+                    let j = Math.floor(Math.random() * 30);
+                    //making a call to API
+                    const response = await fetch(api_url);
+                    // converting it to JSON format
+                    const data = await response.json();
+                    // getting data/information from JSON
+                    const uni = data[j];
+                    let name = uni.name;
+                    let country = uni.country;
+                    let country_code = uni.alpha_two_code;
+                    let website = uni.web_pages[0];
+                    document.getElementById("univ_name").value = name;
+                    document.getElementById("country").value = country;
+                    document.getElementById("country_code").value = country_code;
+                    document.getElementById("website").value = website;   
+                
                 for (i = 0; i < 100; i++) {
+                    const uni = data[i];
+                    let dname = uni.domains[0];
                     document.getElementById("domain-data").innerHTML += "<tr><td id=\"domain-number" + i + "\"></td><td id=\"domain-name-data" + i + "\"></td></tr>";
+                    document.getElementById("domain-number" + i).textContent = i;
+                    document.getElementById("domain-name-data" + i).textContent = dname;
                 }
-                //making a call to API
-                const response = await fetch(api_url);
-                // converting it to JSON format
-                const data = await response.json();
-                // getting data/information from JSON
-                const uni = data[0];
-                let name = uni.name;
-                let country = uni.country;
-                let country_code = uni.alpha_two_code;
-                let website = uni.web_pages[0];
-                let dname = uni.domains[0];
-                document.getElementById("univ_name").value = name;
-                document.getElementById("country").value = country;
-                document.getElementById("country_code").value = country_code;
-                document.getElementById("website").value = website;
-                document.getElementById("domain-name-data" + i).textContent = dname;
-                // document.getElementById("domain-number").textContent = dname;
-
+                
             }
-            // Calling the getUser() function
-            getData();
+            // Calling the getData() function
+                getData();
+            
+            
         </script>
     </main>
 </body>
