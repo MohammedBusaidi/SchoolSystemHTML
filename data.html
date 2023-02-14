@@ -1,0 +1,107 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+.content {
+    text-align: center;
+    padding: 30px;
+    margin: 0px auto;
+}
+.details {
+    margin-left: auto;
+    margin-right: auto;
+}
+table,
+td {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid black;
+}
+.go-back-button {
+    text-align: center;
+}
+.go-back-button button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.go-back-button button :hover {
+    background-color: #3e8e41;
+}
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <h2>Student Details</h2>
+            <div class="details" >
+                <table id="content">
+                    <tr>
+                        <td>
+                            Image
+                        </td>
+                        <td>
+                            Full name
+                        </td>
+                        <td>
+                            Age
+                        </td>
+                        <td>
+                            Gender
+                        </td>
+                        <td>
+                            Location
+                        </td>
+                        <td>
+                            Country
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <a href="index.html">
+        <div class="go-back-button">
+            <button>Go Back</button>
+        </div>
+        </a>
+<script>
+const api_url = "https://randomuser.me/api/";
+async function getUser() {
+    for (i = 0; i < 10; i++) {
+    document.getElementById("content").innerHTML += "<tr><td><span id=\"image"+i+"\"></td><td><span id=\"fullname"+i+"\"></span></td><td><span id=\"age"+i+"\"></span></td><td><span id=\"gender"+i+"\"></span></td><td><span id=\"location"+i+"\"></span></td><td><span id=\"country"+i+"\"></span></td></tr> ";
+}
+    for (i =0; i < 10; i++) {
+    //making a call to API
+    const response = await fetch(api_url);
+    // converting it to JSON format
+    const data = await response.json();
+    // getting data/information from JSON
+    const user = data.results[0];
+    let { first, last } = user.name;
+    let { gender, email, phone } = user;
+    let age = user.dob.age;
+    let { city, state, country } = user.location;
+    let fullName = first + " " + last;
+    let image = user.picture.thumbnail;
+    // getting access to the span container
+    document.querySelector("#image"+i).innerHTML = "<img src='" + image + "'>";
+    document.querySelector("#fullname"+i).textContent = fullName;
+    document.querySelector("#age"+i).textContent = age;
+    document.querySelector("#gender"+i).textContent = gender;
+    document.querySelector("#location"+i).textContent = city + ", " + state;
+    document.querySelector("#country"+i).textContent = country;
+
+    }
+}
+// Calling the getUser() function
+getUser();
+</script>
+    </body>
+</html>
